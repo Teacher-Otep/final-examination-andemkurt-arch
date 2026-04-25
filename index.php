@@ -7,10 +7,10 @@
 </head>
 <body>
     <div class="main-wrapper">
+
        <header class="branding-header">
     <div class="header-content">
         <img src="logo.svg" id="logo" alt="Kurvey Logo" onclick="resetPortal()">
-        
         <div class="title-text">
             <h1>K.KURVEY</h1>
             <p id="dynamic-text">
@@ -22,7 +22,7 @@
         </div>
     </div>
 </header>
-
+    <div class="main-wrapper">
         <nav class="navbar">
             <button class="navbarbuttons" onclick="showSection('create')">Create</button>
             <button class="navbarbuttons" onclick="showSection('read')">Read</button>

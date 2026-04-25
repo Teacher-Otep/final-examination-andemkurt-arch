@@ -3,63 +3,38 @@ function showSection(id) {
     all.forEach(s => s.style.display = 'none');
 
     const target = document.getElementById(id);
-    if (target) {
-        target.style.display = 'block';
-    }
+    if (target) target.style.display = 'block';
 
     const headerText = document.getElementById('dynamic-text');
     if (headerText) {
-        if (id === 'create') {
-            headerText.innerHTML = "| Register New Student";
-        } 
-        else if (id === 'read') {
-            headerText.innerHTML = "| View Students";
-        } 
-        else if (id === 'update') {
-            headerText.innerHTML = "| Update Student Records";
-        } 
-        else if (id === 'delete') {
-            headerText.innerHTML = "| Remove Students Records";
-        }
-        else {
-            headerText.innerHTML = "| Register New Student <br/> | View Students <br/> | Update Student Records <br/> | Remove Students Records";
-        }
+        const labels = {
+            'create': "| Register New Student",
+            'read': "| View Students",
+            'update': "| Update Student Records",
+            'delete': "| Remove Students Records"
+        };
+        headerText.innerHTML = labels[id] || "| Register New Student <br/> | View Students <br/> | Update Student Records <br/> | Remove Students Records";
     }
 }
 
-// Logo click resets everything
-document.getElementById('logo').addEventListener('click', function() {
-    showSection('home');
-    const navbar = document.querySelector('.navbar');
-    if (navbar) navbar.style.display = 'flex';
-});
+function resetPortal() {
+    const navbar = document.querySelector('.main-wrapper');
+    const headerText = document.getElementById('dynamic-text');
 
-// Spacebar validation
+    if (navbar.style.display !== 'none') {
+        navbar.style.display = 'none';
+        showSection('home');
+    } else {
+        navbar.style.display = 'block';
+        showSection('home');
+        headerText.innerHTML = "| Register New Student <br/> | View Students <br/> | Update Student Records <br/> | Remove Students Records";
+    }
+}
+
 document.querySelectorAll('input[type="text"]').forEach(input => {
     input.addEventListener('keydown', function(e) {
-        if (e.keyCode === 32 && this.value.length === 0) {
-            e.preventDefault();
-        }
-        if (e.keyCode === 32 && this.value.endsWith(' ')) {
+        if (e.keyCode === 32 && (this.value.length === 0 || this.value.endsWith(' '))) {
             e.preventDefault();
         }
     });
 });
-
-function resetPortal() {
-  
-    document.getElementById('home').style.display = 'block';
-
- 
-    const sections = document.querySelectorAll('.content');
-    sections.forEach(section => section.style.display = 'none');
-
-  
-    const dynamicText = document.getElementById('dynamic-text');
-    dynamicText.innerHTML = `
-        | Register New Student <br/>
-        | View Students <br/>
-        | Update Student Records <br/>
-        | Remove Students Records
-    `;
-}
