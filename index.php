@@ -8,12 +8,13 @@
 <body>
     <div class="main-wrapper">
 
-       <header class="branding-header">
-    <div class="header-content">
-        <img src="logo.svg" id="logo" alt="Kurvey Logo" onclick="resetPortal()">
-        <div class="title-text">
-            <h1>K.KURVEY</h1>
-            <p id="dynamic-text">
+     <header class="branding-header">
+    <div class="header-content" style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+        <img src="logo.svg" id="logo" alt="Kurvey Logo" onclick="resetPortal()" style="cursor: pointer; width: 60px;">
+        
+        <div class="title-text" style="text-align: left;">
+            <h1 style="margin: 0;">K.KURVEY</h1>
+            <p id="dynamic-text" style="margin: 0; line-height: 1.4;">
                 | Register New Student <br/>
                 | View Students <br/>
                 | Update Student Records <br/>
@@ -22,6 +23,7 @@
         </div>
     </div>
 </header>
+
     <div class="main-wrapper">
         <nav class="navbar">
             <button class="navbarbuttons" onclick="showSection('create')">Create</button>
