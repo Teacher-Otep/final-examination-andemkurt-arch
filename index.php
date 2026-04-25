@@ -7,20 +7,21 @@
 </head>
 <body>
     <div class="main-wrapper">
-        <header class="branding-header">
-            <div class="logo-container">
-                <img src="logo.svg" id="logo" alt="Kurvey Logo" onclick="resetPortal()">
-            </div>
-            <div class="kurvey-text-box">
-                <h1>K.KURVEY</h1>
-                <p class="portal-tag" id="dynamic-text">
-                    | Register New Student <br/>
-                    | View Students <br/>
-                    | Update Student Records <br/>
-                    | Remove Students Records
-                </p>
-            </div>
-        </header>
+       <header class="branding-header">
+    <div class="header-content">
+        <img src="logo.svg" id="logo" alt="Kurvey Logo" onclick="resetPortal()">
+        
+        <div class="title-text">
+            <h1>K.KURVEY</h1>
+            <p id="dynamic-text">
+                | Register New Student <br/>
+                | View Students <br/>
+                | Update Student Records <br/>
+                | Remove Students Records
+            </p>
+        </div>
+    </div>
+</header>
 
         <nav class="navbar">
             <button class="navbarbuttons" onclick="showSection('create')">Create</button>
@@ -30,10 +31,12 @@
         </nav>
     </div>
 
-    <section id="home" class="homecontent" style="display: block;"> 
-        <h1 style="color: #38bdf8; font-size: 1.5rem;">K.Kurvey Management</h1>
-        <p style="color: #94a3b8; font-size: 0.9rem;">Integrative Programming Portal</p>
-    </section>
+    <section id="home" class="homecontent" style="display: block;">
+    <div class="card">
+        <h1>K.Kurvey Management</h1>
+        <p>Integrative Programming Portal</p>
+    </div>
+</section>
 
     <section id="create" class="content" style="display:none;">
         <h1 class="contenttitle">New Registration</h1>
