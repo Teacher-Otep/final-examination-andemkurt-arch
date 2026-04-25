@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+
 <head>
     <title>Kurvey Student Portal</title>
     <link rel="stylesheet" href="kurvey.css">
@@ -48,10 +48,10 @@
             <input type="text" name="middlename" class="field" placeholder="Optional">
 
             <label class="label">Address</label>
-            <input type="text" name="address" class="field" pattern=".*\S.*" title="Address cannot be empty or just spaces">
+            <input type="text" name="address" class="field" pattern=".*\S.*" title="Address cannot be empty or just spaces" required>
 
             <label class="label">Mobile Number</label>
-            <input type="number" name="contact" class="field">
+            <input type="number" name="contact" class="field" required>
             
             <div id="btncontainer">
                 <button type="button" id="clrbtn" class="btns">Clear Fields</button>
@@ -73,13 +73,19 @@
             <label class="label">Select Student ID</label>
             <input type="number" name="id" class="field" placeholder="Enter ID to update..." required>
             
+            <label class="label">New Surname</label>
+            <input type="text" name="new_surname" class="field" placeholder="Enter new surname..." pattern=".*\S.*" title="Input cannot be just spaces" required>
+
             <label class="label">New Name</label>
-            <input type="text" name="name" class="field" placeholder="Enter new name..." pattern=".*\S.*" title="Input cannot be just spaces">
+            <input type="text" name="new_name" class="field" placeholder="Enter new name..." pattern=".*\S.*" title="Input cannot be just spaces" required>
 
             <label class="label">New Address</label>
-            <input type="text" name="address" class="field" placeholder="Enter new address..." pattern=".*\S.*" title="Input cannot be just spaces">
+            <input type="text" name="new_address" class="field" placeholder="Enter new address..." pattern=".*\S.*" title="Input cannot be just spaces" required>
 
-            <button type="submit" class="btns" id="savebtn" style="width: 100%; margin-top: 20px;">
+            <label class="label">New Mobile Number</label>
+            <input type="number" name="new_contact" class="field" placeholder="Enter new contact number..." required>
+
+            <button type="submit" name="update_btn" class="btns" id="savebtn" style="width: 100%; margin-top: 20px;">
                 Apply Changes
             </button>
         </form>
@@ -97,7 +103,15 @@
     <script src="kurvey.js"></script>
 
     <script>
-        // Auto-hide success status
+        
+        function showSection(sectionId) {
+            document.querySelectorAll('.content, .homecontent').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+       
         if (window.location.search.includes('status=success')) {
             setTimeout(() => {
                 window.history.replaceState({}, document.title, window.location.pathname);
