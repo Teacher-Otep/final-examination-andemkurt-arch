@@ -1,6 +1,9 @@
 
-function showSection(id) {
+
  
+function showSection(id) {
+    alert("Button clicked! ID is: " + id);
+
     const all = document.querySelectorAll('.content, .homecontent');
     all.forEach(s => s.style.display = 'none');
 
