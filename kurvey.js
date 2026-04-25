@@ -1,16 +1,13 @@
-// 1. Unified function to switch sections
 function showSection(id) {
-    // Hide everything first
+    // 1. Hide all content and home sections
     const all = document.querySelectorAll('.content, .homecontent');
     all.forEach(s => s.style.display = 'none');
 
-    // Show the target section
+    // 2. Show the specific section clicked
     const target = document.getElementById(id);
-    if (target) {
-        target.style.display = 'block';
-    }
+    if (target) target.style.display = 'block';
 
-    // Update the Header Text based on the ID
+    // 3. Update the Header Text (Using the clean dictionary)
     const headerText = document.getElementById('dynamic-text');
     const labels = {
         'read': "| View Students",
@@ -22,36 +19,30 @@ function showSection(id) {
     headerText.innerHTML = labels[id] || labels['home'];
 }
 
-// 2. The Reset Logic (This is what fixes the "Not doing anything" problem)
-function forceHomeReset() {
-    const navbar = document.querySelector('.navbar');
-    
-    // Force the navbar to be visible no matter what
-    if (navbar) {
-        navbar.style.display = 'flex';
-    }
-    
-    // Reset the view to the Home management card
-    showSection('home');
-}
-
 document.addEventListener('DOMContentLoaded', () => {
-    // FIX: Attach listener directly to the logo image
-    const logoImg = document.getElementById('logo');
-    if (logoImg) {
-        logoImg.addEventListener('click', (e) => {
-            e.preventDefault(); // Stop any default behavior
-            forceHomeReset();
-        });
-    }
+    // THE WORKING TOGGLE LOGIC FROM YOUR FILE
+    document.getElementById('logo').addEventListener('click', function() {
+        const navbar = document.querySelector('.navbar');
+        const home = document.getElementById('home');
+        const contentSections = document.querySelectorAll('.content');
+        const headerText = document.getElementById('dynamic-text');
 
-    // FIX: Attach listener to the Home Management Card itself
-    const homeCard = document.getElementById('home');
-    if (homeCard) {
-        homeCard.addEventListener('click', forceHomeReset);
-    }
+        // Reset text to original state
+        headerText.innerHTML = "| Register New Student <br/> | View Students <br/> | Update Student Records <br/> | Remove Students Records";
 
-    // Handle Clear Button
+        if (navbar.style.display === 'none') {
+            // Revert back: Show buttons and home management card
+            navbar.style.display = 'flex';
+            showSection('home');
+        } else {
+            // Hide buttons and all work sections, show ONLY the branding/home card
+            navbar.style.display = 'none';
+            contentSections.forEach(c => c.style.display = 'none');
+            home.style.display = 'block';
+        }
+    });
+
+    // Clear Button Logic
     const clrBtn = document.getElementById('clrbtn');
     if (clrBtn) {
         clrBtn.addEventListener('click', () => {
@@ -60,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Auto-clean URL after database operations
+    // Auto-clean status from URL after 3 seconds
     if (window.location.search.includes('status')) {
         setTimeout(() => {
             window.history.replaceState({}, document.title, window.location.pathname);
