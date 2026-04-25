@@ -47,19 +47,30 @@ document.querySelectorAll('input[type="text"]').forEach(input => {
 });
 
 function resetPortal() {
-    // 1. Hide all content sections (create, read, update, delete)
-    const sections = document.querySelectorAll('.content');
-    sections.forEach(section => section.style.display = 'none');
-
-    // 2. Show the main management card and navigation buttons
-    document.getElementById('home').style.display = 'block';
-    
-    // 3. Reset the header text to the full 4 lines
+  
+    const navbar = document.querySelector('.main-wrapper');
+    const homeCard = document.getElementById('home');
     const dynamicText = document.getElementById('dynamic-text');
-    dynamicText.innerHTML = `
-        | Register New Student <br/>
-        | View Students <br/>
-        | Update Student Records <br/>
-        | Remove Students Records
-    `;
+
+   
+    if (navbar.style.display !== 'none') {
+    
+        navbar.style.display = 'none';
+        
+       
+    } else {
+      
+        navbar.style.display = 'block';
+        
+    
+        homeCard.style.display = 'block';
+
+      
+        dynamicText.innerHTML = `
+            | Register New Student <br/>
+            | View Students <br/>
+            | Update Student Records <br/>
+            | Remove Students Records
+        `;
+    }
 }
