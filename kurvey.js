@@ -17,9 +17,23 @@ function showSection(id) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // FIXED LOGO LOGIC
     document.getElementById('logo').addEventListener('click', () => {
+        // 1. Make sure the navigation buttons are visible
+        const navbar = document.querySelector('.navbar');
+        if (navbar) navbar.style.display = 'flex';
+
+        // 2. Run the showSection to reset the card and text
         showSection('home');
     });
+
+    // Make the Home Card itself clickable to reset (as you mentioned)
+    const homeCard = document.getElementById('home');
+    if (homeCard) {
+        homeCard.addEventListener('click', () => {
+            showSection('home');
+        });
+    }
 
     const clrBtn = document.getElementById('clrbtn');
     if (clrBtn) {
