@@ -2,24 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kurvey Student Portal</title>
     <link rel="stylesheet" href="kurvey.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <div class="main-wrapper">
         <header class="branding-header">
             <div class="logo-container">
                 <img src="logo.svg" id="logo" alt="Kurvey Logo">
             </div>
-            
             <div class="divider-line"></div>
-
-            <div class="title-container">
+            <div class="kurvey-text-box">
                 <h1>K.KURVEY</h1>
-                <p class="dynamic-text" id="dynamic-text">
+                <p class="portal-tag" id="dynamic-text">
                     | Register New Student <br/>
                     | View Students <br/>
                     | Update Student Records <br/>
@@ -46,19 +42,14 @@
         <form action="includes/insert.php" method="POST">
             <label class="label">Surname</label>
             <input type="text" name="surname" class="field" required>
-            
             <label class="label">Name</label>
             <input type="text" name="name" class="field" required>
-
             <label class="label">Middle Name</label>
             <input type="text" name="middlename" class="field">
-
             <label class="label">Address</label>
             <input type="text" name="address" class="field">
-
             <label class="label">Mobile Number</label>
             <input type="number" name="contact" class="field">
-            
             <div id="btncontainer">
                 <button type="button" id="clrbtn" class="btns">Clear Fields</button>
                 <button type="submit" id="savebtn" class="btns">Save</button>
@@ -77,20 +68,15 @@
         <h1 class="contenttitle">Update Records</h1>
         <form action="includes/update_logic.php" method="POST">
             <label class="label">Student ID to Update</label>
-            <input type="number" name="id" class="field" required placeholder="Enter ID...">
-            
+            <input type="number" name="id" class="field" required>
             <label class="label">New Surname</label>
             <input type="text" name="new_surname" class="field">
-            
             <label class="label">New Name</label>
             <input type="text" name="new_name" class="field">
-
             <label class="label">New Address</label>
             <input type="text" name="new_address" class="field">
-
             <label class="label">New Mobile Number</label>
             <input type="number" name="new_contact" class="field">
-            
             <button type="submit" class="btns" id="savebtn">Apply Changes</button>
         </form>
     </section>

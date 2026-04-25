@@ -17,13 +17,10 @@ function showSection(id) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Logo returns to Home
     document.getElementById('logo').addEventListener('click', () => {
-        document.querySelector('.navbar').style.display = 'flex';
         showSection('home');
     });
 
-    // Clear Button
     const clrBtn = document.getElementById('clrbtn');
     if (clrBtn) {
         clrBtn.addEventListener('click', () => {
@@ -32,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Auto-hide status from URL
     if (window.location.search.includes('status')) {
         setTimeout(() => {
             window.history.replaceState({}, document.title, window.location.pathname);

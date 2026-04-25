@@ -14,7 +14,7 @@ if ($result->num_rows > 0) {
                 <th>Address</th>
                 <th>Contact</th>
             </tr>";
-            
+
     while($row = $result->fetch_assoc()) {
         echo "<tr>
                 <td>".$row["id"]."</td>

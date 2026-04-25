@@ -16,76 +16,15 @@ body {
     box-sizing: border-box;
 }
 
-
-.branding-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px 0;
-}
-
-#logo {
-    width: 60px;
-    filter: drop-shadow(0 0 8px rgba(88, 166, 255, 0.5));
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.divider-line {
-    width: 2px;
-    height: 50px;
-    background: linear-gradient(to bottom, transparent, #30363d, transparent);
-}
-
-.title-container h1 {
-    font-size: 28px;
-    letter-spacing: 5px;
-    margin: 0;
-    color: #58a6ff;
-}
-
-.dynamic-text {
-    font-size: 10px;
-    color: #8b949e;
-    text-transform: uppercase;
-    margin-top: 5px;
-    line-height: 1.5;
-}
-
-
-.content, .homecontent {
-    background: #161b22;
-    padding: 35px;
-    border-radius: 28px;
-    border: 1px solid #30363d;
-}
-
-#read.content {
-    width: 95%;        
-    max-width: 1000px; 
-}
-
-.field {
-    width: 100%;
-    background: #0d1117;
-    border: 1px solid #30363d;
-    color: #ffffff;
-    padding: 12px;
-    border-radius: 8px;
-    margin-top: 8px;
-    box-sizing: border-box;
-}
-
-
+/* Vertical Navbar Fix */
 .navbar {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column; /* Stacked vertically */
     gap: 12px;
-    width: 380px; 
 }
 
 .navbarbuttons {
+    width: 100%;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid #30363d;
     color: #8b949e;
@@ -93,12 +32,49 @@ body {
     border-radius: 12px;
     cursor: pointer;
     transition: 0.3s;
+    text-align: center;
 }
 
 .navbarbuttons:hover {
     background: rgba(88, 166, 255, 0.1);
     color: #ffffff;
     transform: translateX(5px);
+}
+
+/* Arranged Read Section */
+#read.content {
+    width: 95%;        
+    max-width: 1100px; 
+    padding: 40px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #30363d;
+}
+
+th {
+    color: #58a6ff;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.field {
+    width: 100%;
+    background: #0d1117;
+    border: 1px solid #30363d;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 8px;
+    box-sizing: border-box; /* Layout alignment fix */
 }
 
 #savebtn { background: #238636; color: white; }
