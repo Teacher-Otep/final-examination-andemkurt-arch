@@ -1,4 +1,4 @@
-/* Premium Dark Theme */
+/* premium darkish layout */
 body {
     background: radial-gradient(circle at top, #1e293b 0%, #0b0e14 100%);
     margin: 0;
@@ -8,11 +8,13 @@ body {
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
     color: #ffffff;
+    overflow-x: hidden;
 }
 
-/* 1. BRANDING HEADER (Side-by-Side as requested) */
+
 .branding-header {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 20px;
@@ -21,10 +23,16 @@ body {
 }
 
 #logo {
-    width: 65px; /* Size to match reference */
-    filter: drop-shadow(0 0 10px rgba(88, 166, 255, 0.6));
+    width: 65px;
     cursor: pointer;
-    transition: 0.3s ease;
+    filter: drop-shadow(0 0 5px rgba(88, 166, 255, 0.2));
+    
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+#logo:hover {
+    filter: drop-shadow(0 0 15px rgba(88, 166, 255, 0.8));
+    transform: scale(1.1) rotate(-3deg);
 }
 
 .kurvey-text-box h1 {
@@ -32,6 +40,7 @@ body {
     letter-spacing: 4px;
     margin: 0;
     color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
 .portal-tag {
@@ -42,16 +51,18 @@ body {
     margin-top: 4px;
 }
 
-/* 2. NAVIGATION BAR (Vertical Stack) */
+
 .navbar {
     display: flex;
     flex-direction: column;
     gap: 12px;
     width: 380px;
     margin-bottom: 25px;
+    transition: all 0.5s ease;
 }
 
 .navbarbuttons {
+    width: 100%;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid #30363d;
     color: #8b949e;
@@ -59,18 +70,18 @@ body {
     border-radius: 12px;
     cursor: pointer;
     font-size: 14px;
-    transition: all 0.3s ease;
     text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navbarbuttons:hover {
     background: rgba(88, 166, 255, 0.1);
     border-color: #58a6ff;
     color: #ffffff;
-    transform: translateY(-2px);
+    transform: translateX(8px); 
 }
 
-/* 3. CONTENT BOXES */
+
 .content, .homecontent {
     background: #161b22;
     padding: 35px;
@@ -78,15 +89,29 @@ body {
     border: 1px solid #30363d;
     width: 380px;
     box-sizing: border-box;
+   
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Special wide view for the Student Table */
+.homecontent {
+    text-align: center;
+    cursor: pointer;
+}
+
+.homecontent:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #38bdf8;
+    transform: translateY(-10px); 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+
 #read.content {
     width: 95%;
-    max-width: 1000px;
+    max-width: 1100px;
 }
 
-/* Table styling */
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -94,14 +119,36 @@ table {
 }
 
 th, td {
-    padding: 12px;
+    padding: 15px;
     text-align: left;
     border-bottom: 1px solid #30363d;
 }
 
-th { color: #58a6ff; font-size: 0.8rem; text-transform: uppercase; }
+th {
+    color: #58a6ff;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
 
-/* 4. FORM ELEMENTS */
+td {
+    font-size: 0.9rem;
+    color: #e6edf3;
+}
+
+tr:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+
+.label {
+    display: block;
+    font-size: 0.8rem;
+    color: #8b949e;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
 .field {
     width: 100%;
     background: #0d1117;
@@ -109,20 +156,32 @@ th { color: #58a6ff; font-size: 0.8rem; text-transform: uppercase; }
     color: #ffffff;
     padding: 12px;
     border-radius: 8px;
-    margin-top: 8px;
-    box-sizing: border-box;
+    box-sizing: border-box; 
+    transition: border-color 0.3s ease;
+}
+
+.field:focus {
+    border-color: #58a6ff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(88, 166, 255, 0.1);
 }
 
 .btns {
     width: 100%;
     padding: 12px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 20px;
+    border-radius: 10px;
     border: none;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: all 0.3s ease;
 }
 
 #savebtn { background: #238636; color: white; }
-#clrbtn { background: #30363d; color: white; }
+#savebtn:hover { background: #2ea043; transform: scale(1.02); }
+
+#clrbtn { background: #30363d; color: #f0f6fc; }
+#clrbtn:hover { background: #3c444d; }
+
 .delete-btn { background: #da3633; color: white; }
+.delete-btn:hover { background: #f85149; }
