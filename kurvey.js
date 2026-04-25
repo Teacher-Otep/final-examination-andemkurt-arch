@@ -48,29 +48,18 @@ document.querySelectorAll('input[type="text"]').forEach(input => {
 
 function resetPortal() {
   
-    const navbar = document.querySelector('.main-wrapper');
-    const homeCard = document.getElementById('home');
+    document.getElementById('home').style.display = 'block';
+
+ 
+    const sections = document.querySelectorAll('.content');
+    sections.forEach(section => section.style.display = 'none');
+
+  
     const dynamicText = document.getElementById('dynamic-text');
-
-   
-    if (navbar.style.display !== 'none') {
-    
-        navbar.style.display = 'none';
-        
-       
-    } else {
-      
-        navbar.style.display = 'block';
-        
-    
-        homeCard.style.display = 'block';
-
-      
-        dynamicText.innerHTML = `
-            | Register New Student <br/>
-            | View Students <br/>
-            | Update Student Records <br/>
-            | Remove Students Records
-        `;
-    }
+    dynamicText.innerHTML = `
+        | Register New Student <br/>
+        | View Students <br/>
+        | Update Student Records <br/>
+        | Remove Students Records
+    `;
 }
