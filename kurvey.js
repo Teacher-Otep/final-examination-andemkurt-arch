@@ -1,23 +1,58 @@
 function showSection(id) {
-    // Hide all cards
+    
     const all = document.querySelectorAll('.content, .homecontent');
     all.forEach(s => s.style.display = 'none');
 
-    // Show selected card
+    
     const target = document.getElementById(id);
     if (target) target.style.display = 'block';
 
-    // Requirement 4: Handle sentence visibility
-    const lines = ['create', 'read', 'update', 'delete'];
-    lines.forEach(line => {
-        const el = document.getElementById('line-' + line);
-        if (el) {
-            el.style.display = (line === id) ? 'block' : 'none';
-        }
-    });
+    
+    const headerText = document.getElementById('dynamic-text');
+    if (headerText) {
+        const labels = {
+            'create': "| Register New Student",
+            'read': "| View Students",
+            'update': "| Update Student Records",
+            'delete': "| Remove Students Records"
+        };
+        headerText.innerHTML = labels[id];
+    }
 }
 
-// Requirement 2: Logo Toggle
+
+function resetPortal() {
+   
+    const homeSection = document.getElementById('home');
+    if (homeSection) homeSection.style.display = 'block';
+
+    
+    const sections = document.querySelectorAll('.content');
+    sections.forEach(s => s.style.display = 'none');
+
+    
+    const headerText = document.getElementById('dynamic-text');
+    if (headerText) {
+        headerText.innerHTML = `
+            | Register New Student <br/> 
+            | View Students <br/> 
+            | Update Student Records <br/> 
+            | Remove Students Records`;
+    }
+}
+
+
+document.querySelectorAll('.field').forEach(input => {
+    input.addEventListener('keydown', function(e) {
+        if (e.keyCode === 32 && (this.value.length === 0 || this.value.endsWith(' '))) {
+            e.preventDefault();
+            this.classList.add('shake');
+            setTimeout(() => this.classList.remove('shake'), 400);
+        }
+    });
+});
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const logoToggle = document.getElementById('logoToggle');
     const navContainer = document.getElementById('navContainer');
@@ -27,16 +62,4 @@ document.addEventListener('DOMContentLoaded', () => {
             navContainer.classList.toggle('nav-hidden');
         });
     }
-});
-
-// Requirement 5: Visual feedback for spacebar abuse
-document.querySelectorAll('.field').forEach(input => {
-    input.addEventListener('keydown', function(e) {
-        if (e.keyCode === 32 && (this.value.length === 0 || this.value.endsWith(' '))) {
-            e.preventDefault();
-            // Requirement 5: Visual feedback
-            this.classList.add('shake');
-            setTimeout(() => this.classList.remove('shake'), 400);
-        }
-    });
 });
