@@ -8,30 +8,26 @@
 </head>
 <body>
     <div class="main-wrapper">
-        <header class="branding-header">
-            <div class="logo-container">
-                <img src="logo.svg" id="logo" alt="Kurvey Logo">
-            </div>
-            <div class="divider-line"></div>
-            <div class="kurvey-text-box">
-                <h1>K.KURVEY</h1>
-                <p class="portal-tag" id="dynamic-text">
-                    | Register New Student <br/>
-                    | View Students <br/>
-                    | Update Student Records <br/>
-                    | Remove Students Records
-                </p>
-            </div>
-        </header>
+    <header class="branding-header">
+        <img src="logo.svg" id="logo" alt="Kurvey Logo">
+        <div class="kurvey-text-box">
+            <h1>K.KURVEY</h1>
+            <p class="portal-tag" id="dynamic-text">
+                | Register New Student <br/>
+                | View Students <br/>
+                | Update Student Records <br/>
+                | Remove Students Records
+            </p>
+        </div>
+    </header>
 
-        <nav class="navbar">
-            <button class="navbarbuttons" onclick="showSection('create')">Create</button>
-            <button class="navbarbuttons" onclick="showSection('read')">Read</button>
-            <button class="navbarbuttons" onclick="showSection('update')">Update</button>
-            <button class="navbarbuttons" onclick="showSection('delete')">Delete</button>
-        </nav>
-    </div>
-
+    <nav class="navbar">
+        <button class="navbarbuttons" onclick="showSection('create')">Create</button>
+        <button class="navbarbuttons" onclick="showSection('read')">Read</button>
+        <button class="navbarbuttons" onclick="showSection('update')">Update</button>
+        <button class="navbarbuttons" onclick="showSection('delete')">Delete</button>
+    </nav>
+</div>
     <section id="home" class="homecontent" style="display: block;"> 
         <h1 style="color: #38bdf8; font-size: 1.5rem;">K.Kurvey Management</h1>
         <p style="color: #94a3b8; font-size: 0.9rem;">Integrative Programming Portal</p>
