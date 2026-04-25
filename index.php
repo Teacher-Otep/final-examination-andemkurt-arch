@@ -8,11 +8,11 @@
 <body onload="resetPortal()">
     <div class="main-wrapper">
         <header class="branding-header">
-            <div class="logo-container" id="logoToggle">
+            <div class="logo-container" id="logoToggle" style="cursor: pointer;">
                 <img src="logo.png" alt="K" class="logo-icon">
                 <div class="logo-text">
                     <h1>K.KURVEY</h1>
-                    <div id="dynamic-text" class="dynamic-text">
+                    <div id="dynamic-text" style="font-size: 0.8rem; color: #8b949e;">
                         </div>
                 </div>
             </div>
@@ -35,14 +35,6 @@
             <form action="includes/insert.php" method="POST">
                 <label class="label">Surname</label>
                 <input type="text" name="surname" class="field" required>
-                <label class="label">First Name</label>
-                <input type="text" name="name" class="field" required>
-                <label class="label">Middle Name</label>
-                <input type="text" name="middlename" class="field">
-                <label class="label">Address</label>
-                <input type="text" name="address" class="field" required>
-                <label class="label">Mobile Number</label>
-                <input type="number" name="contact" class="field" required>
                 <button type="submit" class="btns">Submit Record</button>
             </form>
         </section>
