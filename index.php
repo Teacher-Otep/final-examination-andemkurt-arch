@@ -9,7 +9,7 @@
     <div class="main-wrapper">
         <header class="branding-header">
             <div class="logo-container">
-                <img src="logo.svg" id="logo" alt="Kurvey Logo">
+                <img src="logo.svg" id="logo" alt="Kurvey Logo" onclick="resetPortal()">
             </div>
             <div class="kurvey-text-box">
                 <h1>K.KURVEY</h1>
