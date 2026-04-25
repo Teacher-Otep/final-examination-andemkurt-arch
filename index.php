@@ -13,12 +13,12 @@
             </div>
             <div class="kurvey-text-box">
                 <h1>K.KURVEY</h1>
-                <p class="portal-tag" id="dynamic-text">
-                    | Register New Student <br/>
-                    | View Students <br/>
-                    | Update Student Records <br/>
-                    | Remove Students Records
-                </p>
+               <p class="portal-tag" id="dynamic-text">
+    <span id="text-create" class="mode-text">| Register New Student</span>
+    <span id="text-read" class="mode-text" style="display:none;">| View Students</span>
+    <span id="text-update" class="mode-text" style="display:none;">| Update Student Records</span>
+    <span id="text-delete" class="mode-text" style="display:none;">| Remove Students Records</span>
+</p>
             </div>
         </header>
 
