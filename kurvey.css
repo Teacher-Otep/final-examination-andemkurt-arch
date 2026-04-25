@@ -192,7 +192,7 @@ td {
     background: #484f58;
 }
 
-/* Shake animation for invalid input */
+
 .shake {
     animation: shake 0.4s ease-in-out;
     border: 2px solid #ff4b2b !important;
@@ -202,4 +202,27 @@ td {
     0%, 100% { transform: translateX(0); }
     25% { transform: translateX(-5px); }
     75% { transform: translateX(5px); }
+}
+
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 500px; 
+    opacity: 1;
+    overflow: hidden;
+}
+
+
+.nav-hidden {
+    max-height: 0;
+    opacity: 0;
+    margin: 0;
+    pointer-events: none;
+}
+
+#logoToggle:active {
+    transform: scale(0.98);
 }

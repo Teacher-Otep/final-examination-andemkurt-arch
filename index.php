@@ -9,29 +9,25 @@
     <div class="main-wrapper">
 
      <header class="branding-header">
-    <div class="header-content" style="display: flex; align-items: center; justify-content: center; gap: 20px;">
-        <img src="logo.svg" id="logo" alt="Kurvey Logo" onclick="resetPortal()" style="cursor: pointer; width: 60px;">
-        
-        <div class="title-text" style="text-align: left;">
-            <h1 style="margin: 0;">K.KURVEY</h1>
-            <p id="dynamic-text" style="margin: 0; line-height: 1.4;">
-                | Register New Student <br/>
-                | View Students <br/>
-                | Update Student Records <br/>
-                | Remove Students Records
-            </p>
-        </div>
+    <div class="logo-container" id="logoToggle" style="cursor: pointer;">
+    <img src="your-logo.png" alt="K" class="logo-icon">
+    <div class="logo-text">
+        <h1 style="margin: 0;">K.KURVEY</h1>
+        <p style="margin: 0; font-size: 0.8rem; opacity: 0.8;">
+            | Register New Student<br>
+            | View Students<br>
+            | Update Student Records<br>
+            | Remove Students Records
+        </p>
     </div>
-</header>
+</div>
 
-    <div class="main-wrapper">
-        <nav class="navbar">
-            <button class="navbarbuttons" onclick="showSection('create')">Create</button>
-            <button class="navbarbuttons" onclick="showSection('read')">Read</button>
-            <button class="navbarbuttons" onclick="showSection('update')">Update</button>
-            <button class="navbarbuttons" onclick="showSection('delete')">Delete</button>
-        </nav>
-    </div>
+<div id="navContainer" class="nav-links">
+    <button class="action-btn" onclick="showSection('create')">Create</button>
+    <button class="action-btn" onclick="showSection('read')">Read</button>
+    <button class="action-btn" onclick="showSection('update')">Update</button>
+    <button class="action-btn" onclick="showSection('delete')">Delete</button>
+</div>
 
     <section id="home" class="homecontent" style="display: block;">
     <div class="card">
