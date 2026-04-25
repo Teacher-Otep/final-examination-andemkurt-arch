@@ -14,15 +14,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (mysqli_num_rows($resultID) > 0) {
         
-        // 2. Duplicate Check: Make sure no OTHER student already has these exact details
-        $checkDuplicate = "SELECT * FROM students WHERE (surname = '$new_surname' AND name = '$new_name' AND contact = '$new_contact') AND id != '$id'";
+        // 2. Duplicate Check: Using 'contact_number' to match your database
+        $checkDuplicate = "SELECT * FROM students WHERE (surname = '$new_surname' AND name = '$new_name' AND contact_number = '$new_contact') AND id != '$id'";
         $resultDuplicate = mysqli_query($conn, $checkDuplicate);
 
         if (mysqli_num_rows($resultDuplicate) > 0) {
             echo "<script>alert('Error: Another student already has these exact details!'); window.location.href='../index.php';</script>";
         } else {
-            // 3. If everything is clear, update the record
-            $query = "UPDATE students SET surname='$new_surname', name='$new_name', address='$new_address', contact='$new_contact' WHERE id='$id'";
+            // 3. Update Query: Using 'contact_number' column name
+            $query = "UPDATE students SET surname='$new_surname', name='$new_name', address='$new_address', contact_number='$new_contact' WHERE id='$id'";
             
             if (mysqli_query($conn, $query)) {
                 echo "<script>alert('Record Updated Successfully!'); window.location.href='../index.php';</script>";
