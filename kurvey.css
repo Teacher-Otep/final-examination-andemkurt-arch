@@ -16,7 +16,7 @@ body {
     box-sizing: border-box;
 }
 
-/* Header Styling */
+
 .branding-header {
     display: flex;
     align-items: center;
@@ -53,7 +53,7 @@ body {
     line-height: 1.5;
 }
 
-/* Forms & Content */
+
 .content, .homecontent {
     background: #161b22;
     padding: 35px;
@@ -74,7 +74,15 @@ body {
     padding: 12px;
     border-radius: 8px;
     margin-top: 8px;
-    box-sizing: border-box; /* Crucial Fix */
+    box-sizing: border-box;
+}
+
+
+.navbar {
+    display: flex;
+    flex-direction: column; 
+    gap: 12px;
+    width: 380px; 
 }
 
 .navbarbuttons {
