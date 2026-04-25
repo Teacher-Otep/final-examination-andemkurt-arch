@@ -8,7 +8,7 @@
 <body>
     <header class="branding-header">
         <div class="logo-container" id="logoToggle">
-            <img src="logo.png" alt="K" class="logo-icon"> 
+            <img src="logo.svg" alt="K" class="logo-icon"> 
             <div class="logo-text">
                 <h1 style="margin: 0; color: #58a6ff; letter-spacing: 5px;">K.KURVEY</h1>
                 <p id="dynamic-text" style="margin: 0; font-size: 0.8rem; color: #8b949e;">

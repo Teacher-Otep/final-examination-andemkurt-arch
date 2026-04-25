@@ -1,4 +1,3 @@
-
 function showSection(id) {
     const all = document.querySelectorAll('.content, .homecontent');
     all.forEach(s => s.style.display = 'none');
@@ -18,7 +17,6 @@ function showSection(id) {
     }
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
     const logoToggle = document.getElementById('logoToggle');
     const navContainer = document.getElementById('navContainer');
@@ -30,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-
 
 document.querySelectorAll('input[type="text"]').forEach(input => {
     input.addEventListener('keydown', function(e) {
