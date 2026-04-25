@@ -48,7 +48,7 @@
             <input type="text" name="address" class="field" placeholder="Enter Address..." required>
             <label class="label">Mobile Number</label>
             <input type="number" name="contact" class="field" placeholder="Enter Contact Number..." required>
-            <button type="submit" class="btns" id="savebtn">Submit Record</button>
+            <button type="submit" class="btns">Submit Record</button>
         </form>
     </section>
 
