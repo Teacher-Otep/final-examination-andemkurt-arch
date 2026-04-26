@@ -1,32 +1,32 @@
 <?php
-
-require_once __DIR__ . '/db.php';
+include 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST['name'] ?? '';
-    $surname = $_POST['surname'] ?? '';
-    $middlename = $_POST['middlename'] ?? '';
-    $address = $_POST['address'] ?? '';
-    $contact = $_POST['contact'] ?? '';
+   
+    $surname = trim($_POST['surname']);
+    $name = trim($_POST['name']);
+    $middlename = trim($_POST['middlename']);
+    $address = trim($_POST['address']);
+    $contact = trim($_POST['contact']);
 
-    try {
-        $sql = "INSERT INTO students (name, surname, middlename, address, contact_number) 
-                VALUES (:name, :surname, :middlename, :address, :contact)";
-        
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([
-            ':name'       => $name,
-            ':surname'    => $surname,
-            ':middlename' => $middlename,
-            ':address'    => $address,
-            ':contact'    => $contact
-        ]);
-
-        header("Location: ../public/index.php?status=success");
+    
+    if (empty($surname) || empty($name)) {
+        echo "<script>
+                alert('Error: Name and Surname cannot be empty or just spaces!');
+                window.location.href='../index.php';
+              </script>";
         exit();
-        
-    } catch (PDOException $e) {
-        echo "Database Error: " . $e->getMessage();
+    }
+    
+    
+    $sql = "INSERT INTO students (surname, name, middlename, address, contact_number) 
+            VALUES ('$surname', '$name', '$middlename', '$address', '$contact')";
+
+    if (mysqli_query($conn, $sql)) {
+        header("Location: ../index.php?status=success");
+        exit();
+    } else {
+        echo "Error: " . mysqli_error($conn);
     }
 }
 ?>
