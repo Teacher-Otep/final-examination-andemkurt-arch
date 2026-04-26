@@ -2,12 +2,22 @@
 include 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $surname = $_POST['surname'];
-    $name = $_POST['name'];
-    $middlename = $_POST['middlename'];
-    $address = $_POST['address'];
-    $contact = $_POST['contact'];
+   
+    $surname = trim($_POST['surname']);
+    $name = trim($_POST['name']);
+    $middlename = trim($_POST['middlename']);
+    $address = trim($_POST['address']);
+    $contact = trim($_POST['contact']);
 
+    
+    if (empty($surname) || empty($name)) {
+        echo "<script>
+                alert('Error: Name and Surname cannot be empty or just spaces!');
+                window.location.href='../index.php';
+              </script>";
+        exit();
+    }
+    
     
     $sql = "INSERT INTO students (surname, name, middlename, address, contact_number) 
             VALUES ('$surname', '$name', '$middlename', '$address', '$contact')";

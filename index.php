@@ -66,9 +66,9 @@
             <label class="label">Student ID to Update</label>
             <input type="number" name="id" class="field" required>
             <label class="label">New Surname</label>
-            <input type="text" name="new_surname" class="field">
+            <input type="text" name="new_surname" class="field" required>
             <label class="label">New Name</label>
-            <input type="text" name="new_name" class="field">
+            <input type="text" name="new_name" class="field" required>
             <label class="label">New Address</label>
             <input type="text" name="new_address" class="field">
             <label class="label">New Mobile Number</label>
