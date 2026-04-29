@@ -1,3 +1,15 @@
+<?php 
+// Check if the URL has the error message we sent from insert.php
+if (isset($_GET['status']) && $_GET['status'] == 'error' && $_GET['message'] == 'duplicate') {
+    echo '<script>alert("Error: This contact number is already registered to a student!");</script>';
+}
+
+// Optional: Also show a success message
+if (isset($_GET['status']) && $_GET['status'] == 'success') {
+    echo '<script>alert("Student successfully registered!");</script>';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

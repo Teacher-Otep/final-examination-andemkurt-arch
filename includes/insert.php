@@ -19,14 +19,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     
+   
     $sql = "INSERT INTO students (surname, name, middlename, address, contact_number) 
             VALUES ('$surname', '$name', '$middlename', '$address', '$contact')";
 
-    if (mysqli_query($conn, $sql)) {
-        header("Location: ../index.php?status=success");
-        exit();
-    } else {
-        echo "Error: " . mysqli_error($conn);
+    try {
+        
+        if (mysqli_query($conn, $sql)) {
+            header("Location: ../index.php?status=success");
+            exit();
+        }
+    } catch (mysqli_sql_exception $e) {
+       
+        if ($conn->errno == 1062) {
+            header("Location: ../index.php?status=error&message=duplicate");
+            exit();
+        } else {
+           
+            die("Database Error: " . $e->getMessage());
+        }
     }
 }
-?>
